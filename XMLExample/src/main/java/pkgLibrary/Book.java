@@ -136,25 +136,6 @@ public class Book {
 		throw new BookException(Book.getBook(id), "This book is not in the Catalog");
 	}
 
-	//	public static void AddBook(String id, Book b) throws BookException
-	//	{
-	//		try{
-	//			Catalog cat= ReadXMLFile();
-	//			ArrayList<Book> newlist = cat.getBooks();
-	//			for (Book b2 : cat.getBooks()) {
-	//				if (b2.getId()==id)
-	//					throw new BookException(b,"Book is already in catalog");
-	//				newlist.add(b);
-	//				cat.setBooks(newlist);
-	//				WriteXMLFile(cat);
-	//			}
-	//		}
-	//			catch(BookException e)
-	//			{System.out.println("Book" + e.getIdbook() + "is already in catalog");
-	//		}
-	//
-	//	}
-
 	public static void AddBook(String id, Book b) throws BookException
 	{
 		Catalog cat= ReadXMLFile();
