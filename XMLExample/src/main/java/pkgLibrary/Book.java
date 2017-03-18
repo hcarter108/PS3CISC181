@@ -1,7 +1,13 @@
 package pkgLibrary;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.io.File;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -15,24 +21,38 @@ public class Book {
 	private double price;
 	private Date publish_date;
 	private String description;
+	private double cost;
 
 	public Book() {
 
 	}
 
-	public Book(String id, String author, String title, String genre, double price, Date publish_date, String description)
-	{
+	public Book(String id, String author, String title, String genre, double cost ,double price, Date publish_date,
+			String description) {
 		super();
 		this.id = id;
 		this.author = author;
 		this.title = title;
-		this.genre = genre;		
+		this.genre = genre;
+		this.cost= cost;
 		this.price = price;
 		this.publish_date = publish_date;
 		this.description = description;
 	}
-	
- 
+
+	public Book(String id) throws BookException {
+		super();
+		Book b= getBook(id);
+		this.id = b.getId();
+		this.author = b.getAuthor();
+		this.title = b.getTitle();
+		this.genre = b.getGenre();
+		this.cost=b.getCost();
+		this.price = b.getPrice();
+		this.publish_date = b.getPublish_date();
+		this.description = b.getDescription();
+
+	}
 
 	public String getId() {
 		return id;
@@ -97,7 +117,103 @@ public class Book {
 		this.description = description;
 	}
 
-	
-	
+	public double getCost() {
+		return cost;
+	}
+
+	@XmlElement
+	public void setCost(Double cost) {
+		this.cost = cost;
+	}
+
+	public static Book getBook(String id) throws BookException {
+		Catalog cat = ReadXMLFile();
+		for (Book b : cat.getBooks()) {
+			if (b.getId().equals(id)) {
+				return b;
+			}
+		}
+		throw new BookException(Book.getBook(id), "This book is not in the Catalog");
+	}
+
+	//	public static void AddBook(String id, Book b) throws BookException
+	//	{
+	//		try{
+	//			Catalog cat= ReadXMLFile();
+	//			ArrayList<Book> newlist = cat.getBooks();
+	//			for (Book b2 : cat.getBooks()) {
+	//				if (b2.getId()==id)
+	//					throw new BookException(b,"Book is already in catalog");
+	//				newlist.add(b);
+	//				cat.setBooks(newlist);
+	//				WriteXMLFile(cat);
+	//			}
+	//		}
+	//			catch(BookException e)
+	//			{System.out.println("Book" + e.getIdbook() + "is already in catalog");
+	//		}
+	//
+	//	}
+
+	public static void AddBook(String id, Book b) throws BookException
+	{
+		Catalog cat= ReadXMLFile();
+		ArrayList<Book> newlist = cat.getBooks();
+		for (Book b2 : cat.getBooks()) {
+			if (b2.getId().equals(id)) {
+				System.out.println("Book" + id + "is already in catalog");
+				throw new BookException(b,"Book is already in catalog");
+			}
+		}
+		newlist.add(b);
+		cat.setBooks(newlist);
+		WriteXMLFile(cat);
+
+	}
+
+	private static Catalog ReadXMLFile() {
+
+		Catalog cat = null;
+
+		String basePath = new File("").getAbsolutePath();
+		basePath = basePath + "\\src\\main\\resources\\XMLFiles\\Books.xml";
+		File file = new File(basePath);
+
+		System.out.println(file.getAbsolutePath());
+		try {
+			JAXBContext jaxbContext = JAXBContext.newInstance(Catalog.class);
+			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+			cat = (Catalog) jaxbUnmarshaller.unmarshal(file);
+			System.out.println(cat);
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+
+		return cat;
+
+	}
+
+	private static void WriteXMLFile(Catalog cat) {
+		try {
+
+			String basePath = new File("").getAbsolutePath();
+			basePath = basePath + "\\src\\main\\resources\\XMLFiles\\Books.xml";
+			File file = new File(basePath);
+
+			JAXBContext jaxbContext = JAXBContext.newInstance(Catalog.class);
+			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+			// output pretty printed
+			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			jaxbMarshaller.marshal(cat, file);
+			jaxbMarshaller.marshal(cat, System.out);
+
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+	}
+
+
 
 }
