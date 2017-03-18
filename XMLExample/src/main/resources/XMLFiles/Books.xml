@@ -6,6 +6,7 @@
 			with XML.
 		</description>
         <genre>Computer</genre>
+        <cost>35.96</cost>
         <price>44.95</price>
         <publish_date>2000-10-01T00:00:00-04:00</publish_date>
         <title>XML Developer's Guide</title>
@@ -17,6 +18,7 @@
 			of the world.
 		</description>
         <genre>Fantasy</genre>
+        <cost>4.76</cost>
         <price>5.95</price>
         <publish_date>2000-12-16T00:00:00-05:00</publish_date>
         <title>Midnight Rain</title>
@@ -28,6 +30,7 @@
 			foundation for a new society.
 		</description>
         <genre>Fantasy</genre>
+        <cost>4.76</cost>
         <price>5.95</price>
         <publish_date>2000-11-17T00:00:00-05:00</publish_date>
         <title>Maeve Ascendant</title>
@@ -40,6 +43,7 @@
 			Ascendant.
 		</description>
         <genre>Fantasy</genre>
+        <cost>4.76</cost>
         <price>5.95</price>
         <publish_date>2001-03-10T00:00:00-05:00</publish_date>
         <title>Oberon's Legacy</title>
@@ -51,6 +55,7 @@
 			Oberon's Legacy.
 		</description>
         <genre>Fantasy</genre>
+        <cost>4.76</cost>
         <price>5.95</price>
         <publish_date>2001-09-10T00:00:00-04:00</publish_date>
         <title>The Sundered Grail</title>
@@ -61,6 +66,7 @@
 			conference, tempers fly as feathers get ruffled.
 		</description>
         <genre>Romance</genre>
+        <cost>3.96</cost>
         <price>4.95</price>
         <publish_date>2000-09-02T00:00:00-04:00</publish_date>
         <title>Lover Birds</title>
@@ -71,6 +77,7 @@
 			thousand leagues beneath the sea.
 		</description>
         <genre>Romance</genre>
+        <cost>3.96</cost>
         <price>4.95</price>
         <publish_date>2000-11-02T00:00:00-05:00</publish_date>
         <title>Splish Splash</title>
@@ -81,6 +88,7 @@
 			centipedes, scorpions and other insects.
 		</description>
         <genre>Horror</genre>
+        <cost>3.96</cost>
         <price>4.95</price>
         <publish_date>2000-12-06T00:00:00-05:00</publish_date>
         <title>Creepy Crawlies</title>
@@ -92,6 +100,7 @@
 			of being quantum.
 		</description>
         <genre>Science Fiction</genre>
+        <cost>5.56</cost>
         <price>6.95</price>
         <publish_date>2000-11-02T00:00:00-05:00</publish_date>
         <title>Paradox Lost</title>
@@ -102,6 +111,7 @@
 			detail in this deep programmer's reference.
 		</description>
         <genre>Computer</genre>
+        <cost>29.56</cost>
         <price>36.95</price>
         <publish_date>2000-12-09T00:00:00-05:00</publish_date>
         <title>Microsoft .NET: The Programming Bible</title>
@@ -113,6 +123,7 @@
 			SAX and more.
 		</description>
         <genre>Computer</genre>
+        <cost>29.56</cost>
         <price>36.95</price>
         <publish_date>2000-12-01T00:00:00-05:00</publish_date>
         <title>MSXML3: A Comprehensive Guide</title>
@@ -125,6 +136,7 @@
 			environment.
 		</description>
         <genre>Computer</genre>
+        <cost>39.96</cost>
         <price>49.95</price>
         <publish_date>2001-04-16T00:00:00-04:00</publish_date>
         <title>Visual Studio 7: A Comprehensive Guide</title>
